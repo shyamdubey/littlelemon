@@ -16,8 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+
+from Restaurent.views import *
+
+
+
+router = routers.DefaultRouter()
+
+
+# router.register(r"menus", MenuViewSet, basename="menu")
+router.register(r'tables', BookingViewSet, basename="table")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('restaurent/', include('Restaurent.urls'))
+    path('restaurent/booking/', include(router.urls)),
+    path('restaurent/', include('Restaurent.urls')),
+    path('api/', include('LittleLemonAPI.urls')),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken'))
+    # path('api-auth/', include(router.urls)),
 ]

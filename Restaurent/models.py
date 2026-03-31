@@ -4,15 +4,15 @@ from django.db import models
 
 
 class Booking(models.Model):
-    id:models.BigAutoField(primary_key=True)
-    name:models.CharField(max_length=255)
-    no_of_guests:models.IntegerField()
-    booking_date:models.DateField(auto_now=False)
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255, default=None)
+    no_of_guests = models.IntegerField(default=0)
+    booking_date = models.DateField(auto_now=False, default=None)
 
 
 
 class Menu(models.Model):
-    id:models.BigAutoField(primary_key=True)
-    title:models.CharField(max_length=255)
-    price:models.FloatField()
-    inventory:models.IntegerField()
+    id = models.BigAutoField(primary_key=True)
+    title = models.CharField(max_length=255, default=None)
+    price = models.FloatField(0)
+    inventory = models.IntegerField(0)

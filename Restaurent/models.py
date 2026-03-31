@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Booking(models.Model):
+class gitBooking(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255, default=None)
     no_of_guests = models.IntegerField(default=0)

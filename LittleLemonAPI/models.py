@@ -13,3 +13,17 @@ class MenuItem(models.Model):
     
     def __str__(self):
         return f'{self.title}:{self.price}'
+    
+
+
+class Booking(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255, default=None)
+    no_of_guests = models.IntegerField(default=0)
+    booking_date = models.DateField(auto_now=False, default=None)
+
+    def get_item(self):
+        return f'{self.name}-{self.no_of_guests}-{self.booking_date}'
+    
+    def __str__(self):
+        return f'{self.name}-{self.no_of_guests}-{self.booking_date}'
